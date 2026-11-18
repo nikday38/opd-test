@@ -94,7 +94,6 @@ const el = {
   btnNext: document.getElementById("btn-next"),
   btnStart: document.getElementById("btn-start"),
   btnRestart: document.getElementById("btn-restart"),
-  btnDownload: document.getElementById("btn-download"),
   rolesResult: document.getElementById("roles-result"),
   firoResult: document.getElementById("firo-result"),
   workResult: document.getElementById("work-result"),
@@ -244,13 +243,6 @@ function renderResults() {
     el.recommendations.appendChild(li);
   });
 
-  state.lastResult = {
-    scores,
-    topRoles: top,
-    recommendations: buildRecommendations(scores),
-    date: new Date().toISOString()
-  };
-
   showScreen("result");
 }
 
@@ -296,34 +288,10 @@ function finishTest() {
   renderResults();
 }
 
-// --- Скачивание результата -----------------------------------
-function downloadResult() {
-  if (!state.lastResult) return;
-  const data = {
-    test: "Психологическое тестирование для деления на проектные группы",
-    based_on: ["Belbin Team Roles", "FIRO-B", "Margerison-McCann TMP"],
-    date: state.lastResult.date,
-    scores: state.lastResult.scores,
-    top_roles: state.lastResult.topRoles.map(r => ({
-      role: SCALE_NAMES[r.key],
-      score: r.score
-    })),
-    recommendations: state.lastResult.recommendations
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "project-role-result.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
 // --- Сброс ---------------------------------------------------
 function restart() {
   state.current = 0;
   state.answers.fill(null);
-  state.lastResult = null;
   showScreen("intro");
 }
 
@@ -338,7 +306,6 @@ function init() {
   el.btnNext.addEventListener("click", goNext);
   el.btnPrev.addEventListener("click", goPrev);
   el.btnRestart.addEventListener("click", restart);
-  el.btnDownload.addEventListener("click", downloadResult);
 
   document.addEventListener("keydown", (e) => {
     if (!screens.test.classList.contains("active")) return;
