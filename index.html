@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль проектной роли и совместимости</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Профиль проектной роли и совместимости</h1>
+      <p class="subtitle">
+        Экспресс-диагностика для формирования проектных групп по ОПД.
+        Основа: Belbin Team Roles, FIRO-B, Margerison-McCann TMP.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="screen-intro" class="screen active">
+      <div class="card">
+        <h2>Инструкция</h2>
+        <p>Ответьте на 29 утверждений. Для каждого выберите один вариант:</p>
+        <ul class="scale-list">
+          <li><b>0</b> — совершенно не согласен</li>
+          <li><b>1</b> — скорее не согласен</li>
+          <li><b>2</b> — нейтрально</li>
+          <li><b>3</b> — скорее согласен</li>
+          <li><b>4</b> — полностью согласен</li>
+        </ul>
+        <p>Отвечайте быстро, ориентируясь на первое впечатление. Время прохождения — 5–7 минут.</p>
+        <p class="note">
+          Тест является учебной адаптацией и не заменяет профессиональную психодиагностику.
+          Результаты используются только для формирования учебных групп.
+        </p>
+        <button id="btn-start" class="btn btn-primary">Начать тест</button>
+      </div>
+    </section>
+
+    <section id="screen-test" class="screen">
+      <div class="progress-wrap">
+        <div class="progress-info">
+          <span id="progress-text">Вопрос 1 из 29</span>
+          <span id="progress-percent">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="card question-card">
+        <p class="question-block" id="question-block">Блок 1. Командные роли</p>
+        <h2 id="question-text">Текст вопроса</h2>
+        <div class="options" id="options"></div>
+        <div class="nav-buttons">
+          <button id="btn-prev" class="btn btn-secondary" disabled>Назад</button>
+          <button id="btn-next" class="btn btn-primary" disabled>Далее</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen">
+      <div class="card">
+        <h2>Результат тестирования</h2>
+        <p class="result-intro" id="result-intro"></p>
+
+        <h3>Командные роли (Belbin)</h3>
+        <div id="roles-result" class="result-block"></div>
+
+        <h3>Межличностные потребности (FIRO)</h3>
+        <div id="firo-result" class="result-block"></div>
+
+        <h3>Рабочие предпочтения (Margerison-McCann)</h3>
+        <div id="work-result" class="result-block"></div>
+
+        <h3>Рекомендации для формирования группы</h3>
+        <ul id="recommendations" class="recommendations"></ul>
+
+        <div class="nav-buttons">
+          <button id="btn-restart" class="btn btn-secondary">Пройти заново</button>
+          <button id="btn-download" class="btn btn-primary">Скачать результат (JSON)</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>НГТУ НЭТИ · Проект «Конспирологи» · Учебная адаптация психодиагностических моделей</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
