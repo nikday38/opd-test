@@ -5,8 +5,8 @@
 }
 
 :root {
-  --primary: #7dd3e0;        /* Нежно-голубой с картинки */
-  --primary-dark: #1565c0;   /* Тёмно-синий для контраста (кнопки, текст) */
+  --primary: #7dd3e0;        /* Нежно-голубой */
+  --primary-dark: #1565c0;   /* Тёмно-синий для контраста */
   --secondary: #b2ebf2;      /* Светло-голубой */
   --text: #1f2937;           /* Тёмно-серый для текста */
   --muted: #6b7280;
@@ -252,12 +252,22 @@ main.container {
   font-size: 1rem;
 }
 
+/* Кнопки навигации */
 .nav-buttons {
   display: flex;
-  justify-content: space-between;
   gap: 12px;
   margin-top: 24px;
   flex-wrap: wrap;
+}
+
+/* На экране теста: Назад слева, Далее справа */
+#screen-test .nav-buttons {
+  justify-content: space-between;
+}
+
+/* На экране результата: кнопка по центру */
+#screen-result .nav-buttons {
+  justify-content: center;
 }
 
 /* Результаты */
