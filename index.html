@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Профиль проектной роли и совместимости</title>
+  <title>Психологическое тестирование для деления на проектные группы</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <div class="container">
-      <h1>Профиль проектной роли и совместимости</h1>
-      <p class="subtitle">
-        Экспресс-диагностика для формирования проектных групп по ОПД.
-        Основа: Belbin Team Roles, FIRO-B, Margerison-McCann TMP.
-      </p>
+      <h1>Психологическое тестирование для деления на проектные группы</h1>
     </div>
   </header>
 
   <main class="container">
+    <!-- Экран приветствия -->
     <section id="screen-intro" class="screen active">
       <div class="card">
         <h2>Инструкция</h2>
@@ -38,6 +35,7 @@
       </div>
     </section>
 
+    <!-- Экран теста -->
     <section id="screen-test" class="screen">
       <div class="progress-wrap">
         <div class="progress-info">
@@ -52,7 +50,11 @@
       <div class="card question-card">
         <p class="question-block" id="question-block">Блок 1. Командные роли</p>
         <h2 id="question-text">Текст вопроса</h2>
-        <div class="options" id="options"></div>
+
+        <div class="options" id="options">
+          <!-- варианты генерируются JS -->
+        </div>
+
         <div class="nav-buttons">
           <button id="btn-prev" class="btn btn-secondary" disabled>Назад</button>
           <button id="btn-next" class="btn btn-primary" disabled>Далее</button>
@@ -60,18 +62,19 @@
       </div>
     </section>
 
+    <!-- Экран результата -->
     <section id="screen-result" class="screen">
       <div class="card">
         <h2>Результат тестирования</h2>
         <p class="result-intro" id="result-intro"></p>
 
-        <h3>Командные роли (Belbin)</h3>
+        <h3>Командные роли</h3>
         <div id="roles-result" class="result-block"></div>
 
-        <h3>Межличностные потребности (FIRO)</h3>
+        <h3>Межличностные потребности</h3>
         <div id="firo-result" class="result-block"></div>
 
-        <h3>Рабочие предпочтения (Margerison-McCann)</h3>
+        <h3>Рабочие предпочтения</h3>
         <div id="work-result" class="result-block"></div>
 
         <h3>Рекомендации для формирования группы</h3>
@@ -84,12 +87,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>НГТУ НЭТИ · Проект «Конспирологи» · Учебная адаптация психодиагностических моделей</p>
-    </div>
-  </footer>
 
   <script src="script.js"></script>
 </body>
